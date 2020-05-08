@@ -1,4 +1,4 @@
-# weather-station project
+# Weather-station project
 ### Giovanni De Angelis
 ## Introduction
 This project's aim is to provide to the users a very simple weather station capable to predict the weather in the next 6/12 hour. The weather station will be created by means of the microcontroller Arduino UNO , two sensor and a 8x8 LED matrix. In order to predict the weather a simple model based on pressure and humidity will be used. Here you can se the [circuit schematic](https://github.com/meft-sad/weather-station/blob/master/Schematic.png).
