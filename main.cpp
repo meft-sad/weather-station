@@ -148,28 +148,36 @@ void loop(){
 
  
 
+  
   if (flagMemory == 1)
+  {
+    hum = DHT.humidity;
+    press[add] = bmp.readPressure();
+    if (add >= 3)
     {
-      hum = DHT.humidity;
-      press[add] = bmp.readPressure();
-      if (add >= 3)
-      {
-       if (press[add-3]-press[add] >= 200 && hum > 65)
+     if (hum >= 65)
+     {
+       if ((press[add-3]-press[add]) >= 200 || flagBadW == 1 )
        {
          flagMatrix = 1;
-       }
+         flagBadW = 1;
+       }else
+        {
+          flagMatrix = 0;
+          flagBadW = 0;
+        }
       }
-      flagMemory = 0;
-      if (add == 71)
+    
+    if (add == 71)
       {
         add = 0;
       }else
-      {
+        {
         add = add + 1;
-      }
-      
-      
-     }
+        }
+    }
+  flagMemory = 0;
+  }
 
   if (flagMatrix == 0)
   {
