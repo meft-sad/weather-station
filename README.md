@@ -23,4 +23,15 @@ The outputs of this projects are mainly two:
 ## Interrupts
 In this project only internal interrupts have been used, precisely the timer interrupts. The UNO arduino board has three timers called Timer0, Timer1 and Timer2: the first two are 8-bit clocks while the last one is a 16 bit clock. In the project only two time interrupts are used : one for the print of the parameter on the serial monitor and on other to compare the pressure values in order to make the weather estimations. The first one has to allow the print operation every 4 seconds while the second one has to allow the comparation operations every one hour. Since the print operations are needed to be performed more often an 8 bit clock has been used while for the comparation operations the 16 bit clock has been used. In both case a prefactor is needed in the set up of the interrupts in order to reduce the frequency at which the clock increment a counter. After this operation two global variables have been used in order to reach the exact time in both cases. When the latter counter reaches the right value a flag has been set up and the relative part of the code is performed. Looking at the code is possible to see this at line 63-73/108-114 regarding the 4s interrupt and 76-87/117-124 regarding the 1h interrupt.
 
+## DHT11
+The DHT11 sensor has been used to calculate the humidity. Data consists of decimal and integral parts. A complete data transmission is 40bit, and the
+sensor sends higher data bit first.
+Data format: 8bit integral RH data + 8bit decimal RH data + 8bit integral T data + 8bit decimal T
+data + 8bit check sum. If the data transmission is right, the check-sum should be the last 8bit of
+"8bit integral RH data + 8bit decimal RH data + 8bit integral T data + 8bit decimal T data".
+Humidity sensing component has two electrodes with moisture holding substrate sandwiched between them.
+The ions are released by the substrate as water vapor is absorbed by it, which in turn increases the conductivity between the electrodes.The change in resistance between the two electrodes is proportional to the relative humidity. Higher relative humidity decreases the resistance between the electrodes, while lower relative humidity increases the resistance between the electrodes.
+The humidity sensor has been tested artificially in order to make the humidity change. Here it's possible to see a plot showing the change of humidity :
+
+
 
