@@ -33,5 +33,15 @@ Humidity sensing component has two electrodes with moisture holding substrate sa
 The ions are released by the substrate as water vapor is absorbed by it, which in turn increases the conductivity between the electrodes.The change in resistance between the two electrodes is proportional to the relative humidity. Higher relative humidity decreases the resistance between the electrodes, while lower relative humidity increases the resistance between the electrodes.
 The humidity sensor has been tested artificially in order to make the humidity change. Here it's possible to see a plot showing the change of humidity :
 
+![Humidity plot](https://github.com/meft-sad/weather-station/blob/master/humPlot.jpg)
+
+The digital interface used is a I2C interface: I2C is a serial communication protocol, so data is transferred bit by bit along a single wire. The diagram od the entire communication is the following :
+
+![Communication process](https://github.com/meft-sad/weather-station/blob/master/communication%20process.JPG)
+
+## BMP280
+The BMP280 has been used to calcluate the temperature and the atmosferic pessure. It has a pressure range of 300/1100 hPa and a temperature range of -40/80 °C. The BMP280 is based on Bosch’s proven Piezo-resistive pressure sensor technology featuring high EMC robustness, high accuracy and linearity and long term stability.
+
+
 
 
